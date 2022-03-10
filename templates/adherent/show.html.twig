@@ -1,0 +1,55 @@
+{% extends 'base-connected.html.twig' %}
+
+{% block body %}
+
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ adherent.id }}</td>
+        </tr>
+        <tr>
+            <th>Prénom</th>
+            <td>{{ adherent.firstName }}</td>
+        </tr>
+        <tr>
+            <th>Nom de famille</th>
+            <td>{{ adherent.lastName }}</td>
+        </tr>
+        <tr>
+            <th>Date de Naissance</th>
+            <td>{{ adherent.birthDate | date('d/M/y') }}</td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td>{{ adherent.address }}</td>
+        </tr>
+        <tr>
+            <th>Code Postale</th>
+            <td>{{ adherent.zipcode }}</td>
+        </tr>
+        <tr>
+            <th>Ville</th>
+            <td>{{ adherent.city }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ adherent.email }}</td>
+        </tr>
+        <tr>
+            <th>Téléphone</th>
+            <td>{{ adherent.phone }}</td>
+        </tr>
+        <tr>
+            <th>Date d'entrée</th>
+            <td>{{ adherent.createdAt | date('d/M/y')}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('adherent') }}">Retour a la liste des adherent</a>
+
+    <a href="{{ path('adherent_edit', {'id': adherent.id}) }}">Modifier</a>
+
+    {{ include('adherent/_delete_form.html.twig') }}
+{% endblock %}

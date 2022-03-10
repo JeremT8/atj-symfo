@@ -1,0 +1,53 @@
+{% extends 'base-connected.html.twig' %}
+
+{% block body %}
+
+    <h4>Listes des adherents : </h4>
+
+    <div class="d-flex justify-content-end mb-4">
+        <a href="{{ path('adherent_new') }}" class="btn btn-primary">
+            Ajouter un adherent
+        </a>
+    </div>
+
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Date de Naissance</th>
+        <th>email</th>
+        <th>Téléphone</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for adherent in adherent %}
+        <tr>
+            <td>
+                <a href="{{  path('adherent_show', {'id': adherent.id}) }}">
+                    {{ adherent.id }}
+                </a>
+            </td>
+            <td>{{ adherent.firstName }}</td>
+            <td>{{ adherent.lastName }}</td>
+            <td>{{ adherent.birthDate | date('d/M/y') }}</td>
+            <td>{{ adherent.email }}</td>
+            <td>{{ adherent.phone }}</td>
+            <td>
+                <a href="{{ path('adherent_edit', {'id': adherent.id}) }}"
+                   class="btn btn-warning btn-sm me-3">
+                    Modifier
+                </a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="5">Aucun résultat</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

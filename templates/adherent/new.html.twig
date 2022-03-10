@@ -1,0 +1,10 @@
+{% extends 'base-connected.html.twig' %}
+
+
+{% block body %}
+    <h4>Ajout d'un nouvelle adherent</h4>
+
+    {{ include('adherent/_form.html.twig') }}
+
+    <a href="{{ path('adherent') }}">Retour à la liste des adhérents</a>
+{% endblock %}

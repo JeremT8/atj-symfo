@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}A toi de jouer !{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body class="container-fluid">
+{% block header %}
+    <header>
+        <div style="display: flex;flex-direction: row;justify-content: space-between;background-color: #212529;">
+        <nav class="navbar bg-dark navbar-dark navbar-expand-sm">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('accueil') }}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('adherent') }}">Membres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('jeu') }}">Jeux</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="navbar bg-dark navbar-dark navbar-expand-sm">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Déconnexion</a>
+                </li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+{% endblock %}
+<div class="row justify-content-center">
+    <div class="col-md-8 p-4">
+        {% block body %}
+        {% endblock %}
+    </div>
+</div>
+{% block footer %}
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>Copyright &copy; <a style="text-decoration: none; color: grey;" href="https://github.com/JeremT8">JeremT8</a></small>
+        </div>
+    </footer>
+{% endblock %}
+</body>
+</html>
