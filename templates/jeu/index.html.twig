@@ -30,7 +30,7 @@
                 </td>
                 <td>{{ jeu.name }}</td>
                 <td>{{ jeu.editor }}</td>
-                <td>{{ jeu.createdAt | date('d F Y') }}</td>
+                <td>{{ jeu.createdAt |format_datetime('full', 'none', locale='fr') }}</td>
                 <td>
                     <a href="{{ path('jeu_edit', {'id': jeu.id}) }}"
                        class="btn btn-warning btn-sm me-3">
