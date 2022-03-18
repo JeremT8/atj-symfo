@@ -6,6 +6,7 @@ use App\Entity\Adherent;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -73,4 +74,6 @@ class AdherentRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
 }

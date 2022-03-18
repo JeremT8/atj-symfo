@@ -19,6 +19,7 @@
         <th>Date de Naissance</th>
         <th>email</th>
         <th>Téléphone</th>
+        <th>Membre depuis le</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -35,6 +36,8 @@
             <td>{{ adherent.birthDate | format_datetime('full', 'none', locale='fr') }}</td>
             <td>{{ adherent.email }}</td>
             <td>{{ adherent.phone }}</td>
+            <td>{{ adherent.createdAt | format_datetime('full', 'none', locale='fr') }}</td>
+
             <td>
                 <a href="{{ path('adherent_edit', {'id': adherent.id}) }}"
                    class="btn btn-warning btn-sm me-3">
