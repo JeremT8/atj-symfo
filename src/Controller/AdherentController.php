@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Adherent;
 use App\Form\AdherentType;
 use App\Repository\AdherentRepository;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -67,8 +69,8 @@ class AdherentController extends AbstractController
     }
 
     /**
-     * @throws \Doctrine\ORM\OptimisticLockException
-     * @throws \Doctrine\ORM\ORMException
+     * @throws OptimisticLockException
+     * @throws ORMException
      */
     #[Route('/{id}', name: 'adherent_delete', methods: ['POST'])]
     public function delete(Request $request, Adherent $adherent, AdherentRepository $adherentRepository): Response

@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\AdherentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use DoctrineExtensions\Query\Mysql\Date;
+
 
 #[ORM\Entity(repositoryClass: AdherentRepository::class)]
 class Adherent
@@ -11,34 +13,34 @@ class Adherent
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private ?int $id;
 
     #[ORM\Column(type: 'string', length: 50)]
-    private $lastName;
+    private string $lastName;
 
     #[ORM\Column(type: 'string', length: 50)]
-    private $firstName;
+    private string $firstName;
 
     #[ORM\Column(type: 'datetime')]
-    private $birthdate;
+    private   $birthdate;
 
     #[ORM\Column(type: 'string', length: 80)]
-    private $address;
+    private string $address;
 
     #[ORM\Column(type: 'string', length: 10)]
-    private $zipcode;
+    private string $zipcode;
 
     #[ORM\Column(type: 'string', length: 50)]
-    private $city;
+    private string $city;
 
     #[ORM\Column(type: 'string', length: 80)]
-    private $email;
+    private string $email;
 
     #[ORM\Column(type: 'string', length: 20)]
-    private $phone;
+    private string $phone;
 
-    #[ORM\Column(type: 'datetime_immutable')]
-    private $createdAt;
+    #[ORM\Column(type: 'datetime')]
+    private  $createdAt;
 
     public function getId(): ?int
     {
@@ -141,15 +143,17 @@ class Adherent
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
+
+
 }

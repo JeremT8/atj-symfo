@@ -1,6 +1,49 @@
 {% extends 'base-connected.html.twig' %}
 
-
 {% block body %}
-    <h1>Jeu</h1>
+
+    <h4>Listes des jeux : </h4>
+
+    <div class="d-flex justify-content-end mb-4">
+        <a href="{{ path('jeu_new') }}" class="btn btn-primary">
+            Ajouter un jeu
+        </a>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom du jeu</th>
+            <th>Editeur</th>
+            <th>Date d'ajout</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for jeu in jeu %}
+            <tr>
+                <td>
+                    <a href="{{  path('jeu_show', {'id': jeu.id}) }}">
+                        {{ jeu.id }}
+                    </a>
+                </td>
+                <td>{{ jeu.name }}</td>
+                <td>{{ jeu.editor }}</td>
+                <td>{{ jeu.createdAt | date('d F Y') }}</td>
+                <td>
+                    <a href="{{ path('jeu_edit', {'id': jeu.id}) }}"
+                       class="btn btn-warning btn-sm me-3">
+                        Modifier
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun résultat</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
 {% endblock %}

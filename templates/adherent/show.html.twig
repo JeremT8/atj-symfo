@@ -1,5 +1,15 @@
 {% extends 'base-connected.html.twig' %}
 
+{% block style %}
+ {{ parent() }}
+ <style>
+     a, button {
+         text-decoration: none;
+         color: white !important;
+     }
+ </style>
+{% endblock %}
+
 {% block body %}
 
     <table class="table table-bordered">
@@ -18,7 +28,7 @@
         </tr>
         <tr>
             <th>Date de Naissance</th>
-            <td>{{ adherent.birthDate | date('d/M/y') }}</td>
+            <td>{{ adherent.birthDate | date('d F Y') }}</td>
         </tr>
         <tr>
             <th>Adresse</th>
@@ -42,14 +52,17 @@
         </tr>
         <tr>
             <th>Date d'entrée</th>
-            <td>{{ adherent.createdAt | date('d/M/y')}}</td>
+            <td>{{ adherent.createdAt | date('D d F Y')}}</td>
         </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('adherent') }}">Retour a la liste des adherent</a>
+    <div style="display: flex;justify-content: space-between;">
+        <button class="btn btn-info "><a class="mb-2" style="text-decoration: none; color: white;" href="{{ path('adherent') }}">Retour a la liste des adherents</a></button>
 
-    <a href="{{ path('adherent_edit', {'id': adherent.id}) }}">Modifier</a>
+        <button class="btn btn-warning "><a class="mb-2" style="text-decoration: none; color: white;" href="{{ path('adherent_edit', {'id': adherent.id}) }}">Modifier cet adhérent</a></button>
 
-    {{ include('adherent/_delete_form.html.twig') }}
+        {{ include('adherent/_delete_form.html.twig') }}
+    </div>
+
 {% endblock %}

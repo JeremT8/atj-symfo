@@ -1,0 +1,44 @@
+{% extends 'base-connected.html.twig' %}
+
+{% block style %}
+    {{ parent() }}
+    <style>
+        a, button {
+            text-decoration: none;
+            color: white !important;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ jeu.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom du jeu</th>
+            <td>{{ jeu.name }}</td>
+        </tr>
+        <tr>
+            <th>Nom de l'editeur</th>
+            <td>{{ jeu.editor }}</td>
+        </tr>
+        <tr>
+            <th>Date d'ajout</th>
+            <td>{{ jeu.createdAt | date('d/M/y')}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div style="display: flex;justify-content: space-between;">
+        <button class="btn btn-info "><a class="mb-2" style="text-decoration: none; color: white;" href="{{ path('jeu') }}">Retour a la liste des jeu</a></button>
+
+        <button class="btn btn-warning "><a class="mb-2" style="text-decoration: none; color: white;" href="{{ path('jeu_edit', {'id': jeu.id}) }}">Modifier cee jeu</a></button>
+
+        {{ include('jeu/_delete_form.html.twig') }}
+    </div>
+
+{% endblock %}

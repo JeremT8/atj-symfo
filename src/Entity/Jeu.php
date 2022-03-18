@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\JeuRepository;
 use Doctrine\ORM\Mapping as ORM;
+use DoctrineExtensions\Query\Mysql\Date;
 
 #[ORM\Entity(repositoryClass: JeuRepository::class)]
 class Jeu
@@ -11,16 +12,18 @@ class Jeu
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private ?int $id;
 
     #[ORM\Column(type: 'string', length: 50)]
-    private $name;
+    private string $name;
 
     #[ORM\Column(type: 'string', length: 50)]
-    private $editor;
+    private string $editor;
 
-    #[ORM\Column(type: 'datetime_immutable')]
+    #[ORM\Column(type: 'datetime')]
     private $createdAt;
+
+
 
     public function getId(): ?int
     {
@@ -51,15 +54,18 @@ class Jeu
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
+
+
+
 }
