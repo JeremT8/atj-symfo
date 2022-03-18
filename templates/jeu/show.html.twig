@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <th>Date d'ajout</th>
-            <td>{{ jeu.createdAt | date('d/M/y')}}</td>
+            <td>{{ jeu.createdAt | format_datetime('full', 'none', locale='fr') }}</td>
         </tr>
         </tbody>
     </table>

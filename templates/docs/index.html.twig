@@ -1,0 +1,53 @@
+{% extends 'base-disconnected.html.twig' %}
+
+
+
+{% block body %}
+    <h1 style="font-weight: bold; text-align:center;">Documentation pour l'utilisation du site</h1>
+
+
+
+    <div class="row" style="margin-top: 5%; font-weight: bold; text-align: justify;text-align-last: center; ">
+        <h4 style="margin-top: 5%; font-weight: bold; text-transform: uppercase;">Pré-requis</h4>
+        <p class="mb-4">Dans un premier temps le site est accessible uniquement en mode administrateur pour cela il faut être connecté a l'application en suivant ce lien :
+            <a href="{{ path('login') }}">Connexion</a>
+        </p>
+
+        <p class="mb-4">
+            Une fois connecté vous aurait accèss a l'ensemble du site qui se décompose en plusieurs partie.
+            Une page d'accueil vous permettant d'accedez au differentes pages du site.
+        </p>
+        </div>
+
+
+        <div class="row" style="margin-top: 5%; font-weight: bold; text-align: justify;text-align-last: center;">
+            <h4 style="margin-top: 5%; font-weight: bold; text-transform: uppercase;">Espace Membres</h4>
+            <p class="mb-4">
+                La page Membres disponible depuis n'importe quel page (sous conditions d'être connecté en tant qu'administrateur) permet de retrouver l'ensemble des actions réalisable sur un adherent.
+                Création, édition et suppression ce passerons sur cette partie du site ! </p> <br/>
+            <p class="mb-4">
+                Une fois sur cette page Membres ont retrouve donc plusieurs actions possible : "Ajouter un adherent" (Bouton en haut a droite de la page), ainsi qu'une liste sous forme de tableau des adhérents enregistré au sein de l'association.
+            </p>
+            <p class="mb-4">
+                Lorsque l'on clique sur le bouton "Ajouter un adherent" nous sommes rediriger vers le formulaire d'ajout de cette adherent. <br/>
+                <strong> Bien remplir tous les champs !</strong> <br/>
+                pour que l'ajout de l'adherent vers la base de donnée ne provoque pas d'erreur ou de conflit.
+            </p>
+            <p class="mb-4">
+                Vous avez la possibilité de supprimer un adherent a n'importe quel moment pour cela rendez vous sur la page principal des adhérents disponible en cliquant ici : <a href="{{ path('adherent') }}">Page principale des adherents</a>
+                <br/>
+                Pour effectuer la suppression il suffit de cliquer sur son identifiant dans la colonne Id du tableau des adherents vous serait alors rediriger vers la page avec les informations de l'adherents selectionné au préalable. Suite à cette opération 3 choix s'offre a vous :
+            <ul><li>Retournez a la liste des adherents -> Pour retourner a la liste des adherents (page précédente) = <strong>Bouton bleu</strong></li>
+                <li>Modifier l'adherent -> Pour modifier les informations de la fiche adherent = <strong> Bouton jaune</strong></li>
+                <li>Supprimer l'adherent -> Pour supprimer l'adherent = <strong>Bouton rouge</strong> -- Une fenetre vous demande si vous étes d'accord de supprimer l'adherent</li>
+            </ul>
+
+            </p>
+        </div>
+
+
+
+
+
+
+{% endblock %}

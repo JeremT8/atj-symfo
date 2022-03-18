@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <th>Date de Naissance</th>
-            <td>{{ adherent.birthDate | date('d F Y') }}</td>
+            <td>{{ adherent.birthDate | format_datetime('full', 'none', locale='fr')  }}</td>
         </tr>
         <tr>
             <th>Adresse</th>
@@ -52,7 +52,7 @@
         </tr>
         <tr>
             <th>Date d'entrée</th>
-            <td>{{ adherent.createdAt | date('D d F Y')}}</td>
+            <td>{{ adherent.createdAt | format_datetime('full', 'none', locale='fr') }}</td>
         </tr>
         </tbody>
     </table>
