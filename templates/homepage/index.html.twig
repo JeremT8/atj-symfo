@@ -1,5 +1,28 @@
 {% extends 'base-disconnected.html.twig' %}
 
 {% block body %}
-    <h1>Homepage</h1>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between">
+        <div class="container" style="margin: 2%; width: 46%; height: 50% ;background-color: cyan; border-radius: 10%">
+            <div style="height: 150px; display: flex; justify-content: center; align-items: center; font-size: x-large">
+                <a style="text-decoration: none; text-transform: uppercase; color: black" href="{{ path('adherent') }}">Les adherents</a>
+            </div>
+        </div>
+        <div class="container" style="margin: 2%; width: 46%; height: 50% ;background-color: indianred; border-radius: 10%">
+            <div style="height: 150px; display: flex; justify-content: center; align-items: center; font-size: x-large">
+                <a style="text-decoration: none; text-transform: uppercase; color: black" href="{{ path('jeu') }}">Les jeux</a>
+            </div>
+        </div>
+        <div class="container" style="margin: 2%; width: 46%; height: 50% ;background-color: mediumseagreen; border-radius: 10%">
+            <div style="height: 150px; display: flex; justify-content: center; align-items: center; font-size: x-large">
+                <a style="text-decoration: none; text-transform: uppercase; color: black" href="#">événement de l'association</a>
+            </div>
+        </div>
+        <div class="container" style="margin: 2%; width: 46%; height: 50% ;background-color: orange; border-radius: 10%">
+            <div style="height: 150px; display: flex; justify-content: center; align-items: center; font-size: x-large">
+                <a style="text-decoration: none; text-transform: uppercase; color: black" href="{{ path('docs') }}">contact</a>
+            </div>
+        </div>
+
+
+    </div>
 {% endblock %}
