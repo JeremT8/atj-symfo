@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-#[Route('/home')]
+#[Route('/')]
 class HomepageController extends AbstractController
 {
     #[Route('/', name: 'accueil')]
@@ -18,3 +18,4 @@ class HomepageController extends AbstractController
         ]);
     }
 }
+

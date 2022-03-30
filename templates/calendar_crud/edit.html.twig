@@ -1,0 +1,12 @@
+{% extends 'base-connected.html.twig' %}
+
+
+{% block body %}
+    <h1 style="text-align: center">Edition de l'évenement : {{ calendar.title }}</h1>
+
+    {{ include('calendar_crud/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a type="button" class="btn btn-info mb-4" href="{{ path('app_calendar_crud_index') }}">Retour a la liste des Evenements</a>
+
+    {{ include('calendar_crud/_delete_form.html.twig') }}
+{% endblock %}

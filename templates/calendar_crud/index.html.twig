@@ -1,0 +1,41 @@
+{% extends 'base-connected.html.twig' %}
+
+
+{% block body %}
+    <h1 style="text-align: center; ">Evenement</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Date début</th>
+                <th>Date fin</th>
+                <th>Description</th>
+                <th>Journée complete</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for calendar in calendars %}
+            <tr>
+                <td>{{ calendar.title }}</td>
+                <td>{{ calendar.start ? calendar.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calendar.end ? calendar.end|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calendar.description }}</td>
+                <td>{{ calendar.allDay ? 'Oui' : 'Non' }}</td>
+
+                <td>
+                    <a type="button" class="btn btn-info" href="{{ path('app_calendar_crud_show', {'id': calendar.id}) }}">Voir</a>
+                    <a type="button" class="btn btn-warning" href="{{ path('app_calendar_crud_edit', {'id': calendar.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a type="button" class="btn btn-primary" href="{{ path('app_calendar_crud_new') }}">Créer un nouvel évenement</a>
+{% endblock %}

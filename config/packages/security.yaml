@@ -42,8 +42,12 @@ security:
          - { path: ^/adherent , roles: ROLE_ADMIN }
          - { path: ^/jeu , roles: ROLE_ADMIN }
          - { path: ^/historique , roles: ROLE_ADMIN }
+         -  { path: ^/calendar , roles: ROLE_ADMIN }
+         -  { path: ^/api , roles: ROLE_ADMIN }
 
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+
+
+      # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
